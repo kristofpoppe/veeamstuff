@@ -1,0 +1,56 @@
+
+veeam backup enterprise manager makes it
+simple to manage multiple veeam backup
+and replication servers from a single
+at some of the common administrative
+tasks you can do with veeam backup
+enterprise manager
+here we have our dashboard view which
+displays useful data aggregated from our
+veeam backup and replication servers if
+doing you can get it right here from the
+easy to use interface of veeam backup
+enterprise manager
+jobs
+as you can see i can quickly and easily
+see all of our job statuses here and
+even perform common operations on our
+jobs i have a couple that failed so
+when i dive a little deeper into my job
+i can see exactly why it fails so i can
+quickly take action and fix the issue
+
+flexible restore options in veeam backup
+file from our file share
+all i need to do is right click on my
+file share i can click the restore
+button up top select restore
+and i can even pick a specific restore
+now i can just expand my file share
+browse to my directory
+and i can see the file i need right here
+i can restore to the original location
+or i can just download the file right
+from enterprise manager
+and my file has been recovered
+we can even restore items from exchange
+sql and oracle
+or restore at the machine level
+
+we can also simply and easily
+provide self-service access to your
+vmware vsphere users we simply need to
+add our user group to self-service and
+select your vsphere delegation mode we
+can provide access based on vc or tags
+which is one of my favorites vca roles
+or vm privileges these are all things
+that
+organizations already have set up in
+their vmware vsphere environments today
+there you have it enterprise manager is
+included with veeam backup and
+replication be sure to download a free
+trial to see how powerful it is for
+yourself
+

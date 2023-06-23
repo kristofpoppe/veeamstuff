@@ -1,0 +1,170 @@
+Veen backup for microsoft office 365
+gives you the ability to securely backup
+and protect your office 365 data from
+accidental deletion security threats and
+retention policy gaps additionally with
+this solution you can easily restore
+exchange emails calendar events and
+contacts office 365 SharePoint sites as
+well as onedrive for business files and
+take a look at the demonstration in this
+demonstration of being backup for
+begin by connecting to an organization
+to do this we right click on
+organizations and select add
+to see the types of organizations we
+have to choose from when we click on the
+select organization deployment type
+365 a hybrid deployment or even an
+on-premise deployment for Exchange or
+SharePoint you can also select the
+Exchange Online SharePoint Online and
+and take a look at the rest of the menu
+an existing organization which is right
+here we right-click select edit and now
+we see the menu for the pre-existing
+organization in the first menu we see
+365 organization when we select next
+to select different authentication
+methods including modern and basic
+going to specify an administrative
+account so we paste the password below
+we can grant this user account required
+roles and permissions via a check box or
+even use the same credentials for
+SharePoint Online and onedrive for
+access to be able to manage these roles
+it verifies step-by-step as it connects
+up to this organization once this is
+completed we can select fit
+and then go down to the backup
+infrastructure option in the left menu
+right-click and select edit on one of
+the pre-configured proxies the first
+window will show which system this proxy
+is located on additionally we can see
+communicating through
+completed all of these steps the last
+menu will allow us to deploy the proxy
+like to look at is the properties so
+and go to the properties menu under the
+general tab of the backup proxy
+properties we see the options to set the
+nber of threads as well as limit the
+network bandwidth if we check the box
+below we will be setting this to one
+megabyte per second the internet proxy
+tab would allow us to either use the
+internet proxy settings from the
+management server or hard-code our own
+the backup repositories that have been
+default repository and select edit here
+we see the name of that repository as
+in this menu we can see the proxy that
+this is attached to this is the proxy
+that office 365 information will be
+stored in and will not be shared with
+any other Veen products here we see the
+next the retention policy is where we
+this data within this repository as you
+this repository is using the item level
+retention option which means each item
+has this retention policy attached to it
+individually this means any items older
+than 10 years will be purged from this
+repository we also have snapshot based
+retention which is more similar to Veen
+backup and replication or the veem
+agents meaning we use a snapshot of that
+mailbox and restore it in the exact same
+state in the bottom right we see the
+advanced top
+open that allows us to apply retention
+policies either added daily or monthly
+interval to remove the items or
+complete the process that completes the
+back out and take a look at some
+existing jobs to do this
+well select organizations on the left
+pre-existing jobs show up on the right
+once we right-click we see the option to
+start the job or we can even select one
+of the existing Veeam explorers in this
+example that shows exchange we could
+also select the SharePoint Explorer
+created the name we included ten-year
+retention to make it easier to be able
+to locate this job
+that allows us to select the objects to
+back up we could choose to back up the
+entire organization but in this example
+we chose to back up the following
+listed object we select edit and it
+up onedrive or the SharePoint sites in
+see that we have included a public
+mailbox I can also select the Add button
+on the right to exclude users groups or
+even specific sites if needed in the
+next menu we simply set up the proxy and
+the repository through a drop-down list
+and then we can select next in the
+scheduling options menu we can run the
+job automatically either daily or it
+periodically the drop-down window will
+give you many options to choose from we
+also have the option to select how many
+times we want to retry a failed object
+terminate a job if it exceeds the
+allowed backup window this can also
+prevent jobs from consing too much
+bandwidth outside of that said window
+once we click Save we complete the
+process of configuring back up for
+office 365
+to give a complete demonstration of how
+on the bottom left hand and open up
+choose an individual email to delete and
+and remove it from here as well this
+from the deleted items to recover this
+item we return to the backup for office
+365 interface select Explorer and open
+the Explorer for exchange as this was an
+gonna pull from the most recent pool of
+data to do this I expand the store in
+the Explorer interface from here I can
+select the mailbox that I was just in
+and go down to the inbox to simplify the
+process of finding this mail and all of
+something that we know is already in the
+some of the options from that drop-down
+menu we see the options to open this
+email or open the items location we can
+restore this to the original email
+location or to a different exchange
+server we can also export it to the
+desktop as a PST file or export it to a
+separate location as a PST file we can
+save it to the desktop as an MSG file or
+to a different location additionally we
+can send this to the original email
+going to restore back to the original
+mailbox of the user for this example the
+example does not have the access to
+restore this to the original location so
+we will be prompted to put in
+credentials that will allow us to do
+this this user will also need to have
+permission to recover data within this
+organization once you provide the name
+and the password for this account and we
+select ok in a short period of time
+restored to its original location
+selecting the see more option will show
+us more information about this job now
+when we go back to that inbox that we
+that we delete
+has now been recovered back to its
+original location that will complete the
+back up for office 365 demonstration
+thank you
+you

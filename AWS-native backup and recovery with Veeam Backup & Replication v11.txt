@@ -1,0 +1,183 @@
+
+hello
+and welcome to this demonstration today
+protect my aws workloads natively
+through veeam backup and replication
+fresh
+backup infrastructure of veeam backup
+and replication
+and we simply want to go and protect our
+aws
+workloads once we have veeam backup and
+replication deployed
+the first thing that we do is we
+navigate to our backup infrastructure
+and
+we go to our managed servers we simply
+right click
+and say add server this is where we can
+add
+all the infrastructure that we want to
+protect through veeam backup and
+replication
+windows linux agents or we want to
+protect our workload
+running out in the public cloud in aws
+or microsoft azure
+so we simply pick veeam backup for
+aws
+now we have two choices here if we were
+an existing
+veeam backup for aws customer we would
+be able to connect
+to an already existing appliance but in
+this scenario
+we simply want to deploy a new appliance
+workloads before
+so we say we want to deploy a new
+appliance
+now we can pick our aws accounts
+so we add in our aws access keys
+once we paste in our access keys which
+have been blurred out
+for security reasons we simply say ok
+then we pick where we want
+to deploy the appliance which will help
+us protect
+those workloads very simply very easily
+to pick
+north virginia we say next
+vbr aws demo
+now we have the options to either use
+existing
+vpc configurations or create new ones
+for the appliance to use we can specify
+an existing one
+pick subnets security groups
+whatever we have pre-populated in our
+vpcs in that data center
+to say create new and veeam backup and
+replication will go and create
+everything that we need and configure
+all the networking we need
+for this to work
+we have the option of picking either
+dynamic or static
+just going to simply pick dynamic
+but if we had elastic ips configured
+in that data center in that virtual
+private cloud
+we could also pick a static ip
+now we create some administrator
+credentials
+for the appliance and we pick
+a key pair now we can
+create a key pair if we wanted to or we
+can use some pre-existing
+key pairs that have already been created
+in aws ec2
+appliance to deploy
+replication to
+be able to protect our aws
+smary of our configuration options are
+and we also have the ability to now
+create
+a s3 backup repository so an aws
+object storage backup repository
+directly through
+this veeam backup and replication wizard
+so we picked the
+tick box enable that and we simply say
+finish this will allow us to configure
+that backup repository
+configured we give it
+a repository name
+and then we pick the aws account that we
+added in the credentials of
+earlier and we we can pick out aws
+regions and we say next
+we pick the data center and
+we simply browse for buckets
+we can enable encryption
+and add passwords into this for
+encryption
+and we can create a hint as well so
+we always know what our password is
+once we have that backup repository
+registered
+that gives us all the details around
+and we simply say finish we can see that
+we now have an
+aws backup appliance deployed allowing
+us to go and protect our
+infrastructure in aws
+automatically created is a vpc
+configuration backup job
+that will run and detect all our virtual
+private cloud configuration settings
+across all our data centers that we have
+configured
+in our aws account
+now we can create our first backup job
+so we right click and we go through our
+menu option to create a backup job
+and we can specify whether we want to
+create an ec2
+or an rds backup job now we get
+presented
+with this html ui that allows us to
+create
+call this
+first job policy
+we say next
+what aws account do we want to use so if
+we
+have added in multiple aws accounts
+actually pick those specify a region
+particular region here
+now we can actually pick what we want to
+protect
+whether we want to protect all resources
+individual instances or
+whether we want to do it via tags if we
+just pick
+a particular instance
+just going to protect our ubiquity
+networks
+we can exclude voles if we want to we
+can turn on
+application aware backups if we want to
+do we want to replicate snapshots to
+different accounts in different regions
+configuring
+our snapshots to be offloaded into that
+object
+storage s3 repository that we created
+when we were configuring our aws
+appliance
+we say apply then we can pick our
+daily backup of this
+how often do we want to take our backups
+lunchtime how many snapshots do we want
+to keep and how many restore points do
+we want to keep
+feature in
+protecting your public cloud workloads
+a cost estimator or a cost calculator
+and we can see here that the cost is
+4.29 to protect this particular workload
+based on our snapshots backup traffic
+and transaction costs
+and then we simply say finish
+and there we have it our first backup
+job has been
+created in veeam backup and replication
+and we can now protect
+our workloads natively
+through veeam backup and replication we
+can see that we have
+our snapshots configured
+thank you for watching this
+demonstration for more information
+go to veeam.com
+you

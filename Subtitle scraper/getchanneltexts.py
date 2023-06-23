@@ -55,11 +55,9 @@ for video_id in video_ids:
     try:
         srt = YouTubeTranscriptApi.get_transcript(video_id,languages=['en'])
     except:
-        print(f"{video_id} doesn't have a transcript")
+        print(f"{video_id} doesn't have a transcript") # Skip videos with no transcripts available
     title = get_video_title(video_id)
         
-# prints the result
-# print(srt)
     pattern = r"'text': '(.*?)', 'start'"
 
     with open(title+".txt", "w") as f:   

@@ -1,0 +1,126 @@
+
+these days unfortunately malicious
+actors
+malware even potentially insider attacks
+are a big concern that we need to
+address to solve this
+veem now introduces the hardened
+repository which includes the feature of
+immutability
+down
+and delete backup files before a
+certain amount of time has passed even
+if you are the backup administrator
+this is a capability we have on linux
+repositories
+also known as a hardened repository
+today let me take you through a process
+of setting up a hardened repository
+and enabling immutability inside that
+repository
+inside the lab we basically want to go
+down to backup
+backup repositories
+click add repository
+which would be a linux zone
+pick linux
+the next step is to actually add this
+repository in
+we will simply call it buttons
+repository click next
+then we have to pick which server it is
+in this case i have some
+learning service already but this is not
+add new type in the host name
+next how do we connect to this so
+initially
+to set this up you will need to have ssh
+use
+directory on this server which is
+available to
+own
+chmod which would be
+use to connect here would be
+beam rep one my password
+connect
+in and install a veeam data mover
+service which will run with reduced
+privileges but we do need root here
+initially to
+given this account
+need to
+take this in here in any way you can
+even call this a
+single use credential
+will have a fingerprint of course we
+could from the server
+to go and double check its fingerprints
+okay so we can see our transport or
+veeam data move search will be installed
+so this will take just a little bit and
+we can see the data mover search is
+getting installed here
+all of this you can essentially go down
+to have it running
+if you do want to keep it running you
+could essentially firewall it only
+allowing
+certain machines on the network to
+connect using ssh for
+security purposes but you definitely
+would want to make sure that root is not
+able to connect in
+because the way this immutability works
+is essentially that only the
+root account would be able to remove the
+eye
+or immutability flag on files
+to click next and finish
+now a managed server and we can continue
+the
+process of setting up the new repository
+click populate here
+which will give us an overview of the
+different drives that are available
+okay i will be using this backups xfs
+drive to store my backups on click next
+okay we can see the capacity and free
+space is unknown
+simply click populate to just confirm
+that we did in fact select the right
+drive here
+if we use xfs voles you could
+take a look at one of our
+other videos for more information about
+this specific feature
+immutable so basically here i can decide
+how long should these be immutable this
+is for
+our primary jobs and the primary chain
+if you have gfs for backups notice here
+they are made immutable for the entire
+duration of their retention policy so
+i could say i want to always guarantee
+that they will be here for
+31 days no one can delete them during
+this
+process click next if we need to mount
+to pick either a backup server or
+maybe another windows baser to act as
+the
+mount server click next
+this takes us through a little review
+here we can see everything is already
+set up so
+basically just click apply
+and that basically it we can see the
+process is finished
+next finished and my hardened repository
+able to start setting up new jobs
+targeting this repository or i could
+even start handing in
+as a scale out back repository
+thank you so much for watching this
+video and we hope to see you in
+another video
+you

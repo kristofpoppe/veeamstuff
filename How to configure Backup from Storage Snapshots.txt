@@ -1,0 +1,133 @@
+back up from storage snapshots is a
+feature that is managed in the Veen
+backup and replication interface it
+complements the vSphere snapshot
+technology and uses storage snaps as a
+source of data for backup and
+replication as a result the vSphere
+snapshot exists for a very short time
+delta files do not grow large and the
+take a look at a demonstration in this
+demonstration I want to give you a
+general overview of how the backup from
+snapshot features work why we use it and
+the basic configuration of it in a
+backup job snapshots are seen in several
+places either the VSS level the
+hypervisor or level or the storage level
+and in our discussion during this
+VMware snapshots or hardware storage
+backup job so that I can show you the
+configuration for how this seems to be
+set up to integrate with these storage
+snapshots themselves right mouse
+clicking going to edit and then
+the Advanced tab under this Advanced tab
+and then integration we need to make
+sure that this box is ticked right here
+which says enable backup from storage
+snapshots without this being checked all
+not be usable whatsoever okay so again
+we want to go underneath storage and
+then go under advanced underneath
+integration and tick this box okay so
+want to take you into the storage
+infrastructure so you can see this
+particular storage device is in fact
+integrated and you can see some of the
+snapshots that have already been ran off
+of this as well so we do have snapshot
+functionality there keep in mind that we
+integrate with many storage vendors not
+demonstration if you would like
+additional information about other
+specific storage vendors you can find
+those demos underneath to learn
+tab on veem comm in the how-to videos
+primary benefit of using backup from
+snort snapshots is to avoid any
+potential VM stunning when VMware is
+about that for a second a stun operation
+means that we pause the execution of a
+VM at an instructional boundary and we
+allow any in-flight disk i/o to be
+completed that stem operation itself is
+not normally a time expensive thing
+typically only a hundred milliseconds or
+sort of delay in the i/o stack of that
+particular VM producing a snapshot or VM
+disavow requires that the VM be stunned
+a snapshot of the VM file to be ingested
+snapping a highly transactional
+application like a database there are
+nasty side effects that could appear in
+the form of lengthy backup windows and
+application timeouts
+when stun ingestion consolidation
+kick this one off and get it to start as
+well what V does is it goes in and
+analyzes the VMS that the job hosts
+their disk on storage wise it triggers
+the vCenter server to create a VMware
+vSphere snapshot for these VMs then it
+goes to get change block tracking
+information from those VMs that are
+hosted on the storage system it sends
+instructions to the storage system to
+create snapshots of the storage vole
+or the long at the host VMs and vSphere
+snapshots reside on after that it tells
+V Center to remove those VMware
+snapshots on the production storage
+system then those cloned vm v smears
+shots they remain on the creative
+check the backup infrastructure to see
+direct connection to that storage system
+then veeam will mount that storage
+snapshot as a new vole to the backup
+proxy we go out and read the transport
+VM data blocks via the backup proxy to
+the backup or depository for incremental
+backups or replication and then veeam
+uses the obtain change block tracking
+data to retrieve only the changed data
+blocks from the storage snapshot when
+the VM data process is finished we
+unmount that store snapshot from the
+backup proxy and instruct the storage
+system to remove the storage snapshots
+and replication follows to perform
+backups from snapshot operations now as
+we walk through that looks like we are
+successfully completed on both of those
+the statistics between the two so you
+can see a job that has been done with no
+statistics here in our details there are
+no snapshots here and you can see that
+it walks through the process of
+processing these actual VMs going
+through nothing specific or specials
+happening on them the snaps happen in
+the background once this is all done it
+the statistics here now you can see that
+almost instantaneously it creates a
+storage snapshot meaning that that stuns
+starting the backup process you can see
+we go down here export those storage
+snapshots we delete them and then we go
+through and do our physical backup and
+finish up the job
+huge difference and how the two things
+are being done there this cleanup
+process and the storage snapshots
+themselves being instantly created so
+stun to those beams themselves well I
+could describe to you how the process
+happens and then showed you these two
+detailed informational pieces of these
+two separate jobs to give you the
+mind that we have additional videos
+underneath the learn tab on vein comm
+under how to videos thank you so much
+for watching
+you

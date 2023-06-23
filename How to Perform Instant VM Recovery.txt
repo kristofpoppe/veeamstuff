@@ -1,0 +1,154 @@
+one of the most critical areas of any
+successful data protection strategy is
+the ability to recover what you need
+when you need it quickly to maintain
+continuity of the business instant VM
+recovery is a functionality within veem
+that enables the user to run a failed
+workload directly from the backup file
+within minutes not only is this easy to
+perform but this can be leveraged from
+look in the software how you initiate
+this restore type as well as what
+options you have along the way now that
+an instant VM recovery works the first
+step is to launch the wizard you can do
+this from one of two places one place
+would be the ribbon menu under restore
+and probably the shorter method is to
+simply browse the backups that you have
+on disk right-click the failed VM that
+you need to recover and choose your very
+first option which is instant VM
+recovery this is going to launch the
+wizard now at this point just like most
+of our recoveries that you can perform
+the very first step in the wizard is
+choosing which version you want to bring
+going to grab the latest available
+restore point when you hit next now you
+have the ability to go back to the
+original location with all the same
+settings or you can perform a restore to
+a new location or perhaps with different
+settings notice you do have the ability
+here at the bottom to choose whether or
+not you want tags to also be recovered
+now from here I could modify and
+redirect this instant VM recovery to
+another host another folder modify the
+name if I want and I could also change
+the resource pool allocation if need be
+suffix to the name just so we know that
+this is the restored version ok now when
+we hit next we do have the ability to
+redirect the right cache now what the
+right cache is used for is when you
+log is simply there to track
+the rights are the changes that are
+occurring while the instant VM Recovery
+is running now generally speaking this
+right cache location does not exist on
+production storage but rather it will
+exist as a vole and folder on whatever
+your repository configuration more on
+that within the user guide
+if you want the best possible
+VM recovery good example would be a
+highly transactional database workload
+you may choose to redirect this right
+cache over to a production data store to
+pick up additional IO performance
+capability that your production array
+offers over that of a general spinning
+disk on say a mount server now the next
+option is secure restore if you want to
+do a malware check before you launch the
+instant VM recovery in production you
+have that optional feature available
+here you can proceed if malware is
+detected but disable the Nix or you can
+abort the recovery altogether all right
+just say testing and then finally one
+other very important step at the bottom
+you do have the ability to choose
+whether or not you want to turn this VM
+on as well as connect it back to the
+failure for this quick demo so we are
+going to power it on automatically but
+reconnect it to our production network
+since the original version is still
+running now had this been a real failure
+chances are you would want both of these
+check boxes turned on so that when it is
+powered on automatically it will
+automatically be accessible on your
+network finally you hit restore and it
+starts the process now while this
+going to do is couple things nber one
+you do an instant VM recovery the backup
+file is always in a read-only
+the integrity of your backup data that
+lives on your repository by launching
+this instant VM recovery all the reads
+will be coming from the original backup
+source but all the writes will be
+captured in the redo log that we touched
+on a moment ago
+now you see that it actually locks the
+backup file just like I said a minute
+VM into the virtual infrastructure now
+important to note that this is not a
+finalized restore at this point instant
+VM recovery is essentially done with two
+right now which is getting that workload
+running getting it available and
+allowing the users to conse the
+resources again prime example is if this
+were to be an exchange server once we
+get it running emails will begin flowing
+outlook clients will reconnect etc but
+notice here at the bottom it says
+waiting for the user to start the
+migration now the reason this is
+see instant recovery is bold here in the
+UI and you see the VM that we have in a
+second step to this and once you get the
+instant VM recovery running the workload
+is back online your users are able to
+conse that application again then you
+options you can either migrate this to
+production or you can stop publishing
+now if this were to be a real failure
+migrate to production would be the
+logical choice now this is something
+that you could wait until a maintenance
+period or a low peak hour time of day
+such as the evening before you actually
+kick off this migration or if this were
+another use case where you quickly
+wanted to bring online a work load and
+do a compare and contrast perhaps of a
+setting or a database from the current
+live production
+state versus the way it was a week ago
+my greeting it you just wanted to turn
+it on briefly do your comparison and
+then in that example you would simply
+okay or you could open the console and
+log in directly from here without even
+needing to open up your vSphere client
+have any intention on doing the full
+restore but if you did choose migrate to
+production and you do have a license for
+have the storage of emotion license
+functionality which will create the new
+state from the instant VM recovery
+version and rese it on the new version
+so there will be a very very brief
+period of service interruption when you
+storage of emotion license so just plan
+for that before you kick off that
+perform the instant VM recovery thank
+you so much for watching and enjoy the
+rest of your day

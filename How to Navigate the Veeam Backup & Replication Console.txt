@@ -1,0 +1,358 @@
+your environment one of the final pieces
+to understand is how to get started and
+navigate your way through the console so
+to explore the different sections within
+the VM UI taking a look at certain
+capabilities in functionalities to get
+full advantage of all the innovation
+that beam is packed into our product
+the lab now at this quick tour
+take a quick tour around so that you
+know how to find your way and navigate
+through the solution the first thing
+broken out into a few different key
+regions the first in primary region that
+experience this is going to be where
+items such as jobs will be located now
+see what I would describe is the tree
+navigation section and this is where if
+you look at the top level of a certain
+break it down even further into in this
+case well what type of job do you want
+to look at you want to focus on your
+easy way to navigate around now the
+other thing to mention around this
+navigation tree is it will be
+replication job created the replicas tab
+will simply not show up until you have
+created your very first replica same
+thing with the replication node under
+the jobs tree you will not see this
+replication filter until you have
+actually created your first replication
+such a busy viewing experience for items
+top ribbon navigation menu is also going
+to be very important because this is one
+way that you can start creating jobs as
+well as facilitating restorations when
+the time calls for it now another way to
+create jobs is the
+simply right-click in the main viewing
+window and this is another way that you
+can start building either your backup
+backup jobs you can initiate that wizard
+directly from here or you can simply
+click the relevant button in the ribbon
+menu at the top
+now the other very important component
+of navigating around the solution is
+going to be the different sections of
+the bottom left-hand corner of the
+managing so for an example when you
+first install Veen backup and
+infrastructure and start making
+connections to servers that are going to
+be relevant such as establish a
+connection with your vCenter server you
+may have a hyper-v environment where you
+want to establish a cluster connection
+you also may want to add additional Veen
+backup repositories if you only have
+you want your backups to go so this
+gives you the ability to add multiple
+repositories perhaps some scale-out
+backup repositories so that you can add
+different types of storage devices in a
+logical pool that Veen can leverage to
+help simplify job management and also
+improve the user experience
+coincidentally the scale-out repository
+added that you can leverage the cloud
+tier if you happen to want to offload
+some of your backups to object storage
+now another very crucial part is the
+backup proxies the proxies within our
+product set are the heavy lifters
+actually responsible for the compression
+the deduplication and actual movement of
+data so chances are you may need more
+than one this is how you would locate
+those in order to add additional proxies
+so you get the idea the navigation tree
+will change based on the section of the
+under backup infrastructure now
+involved with management and making and
+establishing connections with different
+resources within your environment now if
+this is also where you can manage your
+Edition or workstation Edition and you
+want to manage those centrally from your
+VM deployment this is where you actually
+can establish protection groups and
+different scopes in order to deploy and
+manage those agents centrally now the
+about this section menu at the bottom
+left hand corner is there is a slider
+that you can either reduce the size or
+maximize the size and notice when you
+reduce it you get the very tiny icons
+here running across the bottom and one
+is a lot of times when you install fiend
+backup and replication this will be the
+default view meaning it will end with
+files
+right there is your history icon and
+typically that will be defaulted to the
+for it it could be easily missed or
+overlooked so if you ever want to look
+the environment within Veen backup and
+history icon and then just like before
+the navigation tree is going to be
+reflective of history items such as if
+you wanted to look at restore history
+win so look an instant VM recovery took
+place if we double-click on this it
+actually breaks down everything that
+happened with regards to this particular
+really nice about this section menu is
+infrastructure well in this particular
+why look at tape infrastructure from an
+have any tape in your environment and
+also have this
+at the bottom right hand side of this
+little section menu where you can
+actually tweak which one of those menu
+options you may want to hide so for an
+example in this case we can just uncheck
+tape and it goes away now if you ever
+as reversing that process and simply
+tape right back but this is a nice way
+to customize your view so you may not
+have tape you also may not have an
+integrated San array from one of our
+the storage infrastructure tab really
+with several of our technology Alliance
+also deselect that to make a customized
+view based on your specific environment
+now the one other thing to mention
+very top left-hand corner of the feem
+icon a lot of people refer to this as
+the hamburger menu the global menu
+whatever you want to refer to it as but
+this is think of it as the primary Veen
+settings menu so when you first launch
+this you can go to several different
+areas within the product set the first
+thing to notice at the bottom this is
+where you can get additional help with
+the solution if you need to this is also
+the location if you ever needed to
+say veem support you can do that by
+simply going to help and support
+information and this is a wizard driven
+process that will help you do Veen log
+collection should you ever need that now
+if we work our way up this is also where
+you could apply a license if you need to
+either change your license information
+license that you need to apply this is
+one of the couple ways that you can
+apply a license the other option that
+is using the Veen backup Enterprise
+Manager now if we also look at the theme
+you do have the ability to modify the
+theme if you
+Govan green or if you want to change it
+graphite in this case so this is just an
+aesthetic preference for you as the user
+if we go up to console notice we have a
+few nice tools available such as putty
+PowerShell right there as well as a
+remote desktop
+you also have configuration backup and
+this is crucial
+by default the configuration backup will
+an example you create a backup job along
+the way at some point in time and you
+enable encryption on the job but you
+checkbox to do encryption on the
+configuration backup you could find
+yourself with a configuration backup
+that is configured but not running
+because you never enabled encryption so
+to enable encryption on your
+configuration backup
+if you ever enable it within any of your
+jobs inside the console now this is also
+where you can change the repository
+location of the configuration back up
+the nber of restore points to keep
+when the job is actually going to run
+and the latest status of the job itself
+now you can modify this and keep in mind
+all this is done inside the settings
+not going to show up as an additional
+job listed out in the main viewing
+window think about this as an integrated
+settings pane and if you ever found
+yourself having to do a restore from the
+configuration backup you do have that
+ability as well now if we look a bit
+deeper this is also where you can get
+into network traffic throttling rules so
+you can either add in a rule that gives
+you the ability to specify source and
+target IP ranges you can choose to
+either encrypt the network traffic or to
+leave that disabled and you also have
+the ability when you implement the
+throttling to either throttle this all
+the time or during a certain time period
+only so for an example if you wanted it
+to throttle traffic only during business
+hours you do have the ability
+to enable a throttling rule only during
+your business hours just as an example
+or you can just have it as in all the
+time always on traffic throttling rule
+and you do have the ability to add
+multiples you can just continue adding
+these to meet your requirements
+now also under networks you have the
+ability to specify a preferred network
+that veem will attempt to use for all of
+our traffic now notice it says preferred
+not required so we will default to
+trying to use this network if it is
+accessible but if for whatever reason
+that network happened to be inaccessible
+during the time of a job run but your
+say where all of your management traffic
+goes we will then use that Network
+instead now if we also look under users
+and roles this is where you can modify
+the different users and roles that have
+the ability to open the console such as
+operator so several different predefined
+roles you can read more about the
+restrictions on each of these in the
+user guide you can add multiple users
+that way also
+notice under general options this is
+like IO control now this is very
+important to making sure that when veins
+performance hit on your production
+storage array so if you enable this
+new tasks to the datastore at a certain
+interval or certain threshold such as 40
+IO of existing tasks once it hits a
+certain threshold as well so you can
+think about this like a performance
+check so if we actually hit this 40
+milliseconds Veeam will stop assigning
+new tasks to this particular datastore
+but what if things keep getting worse
+because of all the impact that our
+proxies potentially are putting on your
+say then we can throttle exist
+tasks at another level so in this case
+at 80 milliseconds now if you happen to
+be on Enterprise Plus you can actually
+do this per datastore so you can drill
+out into your environment select
+individual data stores and set their own
+thresholds because it is a high
+they have different underlying
+capabilities such as maybe you have an
+all flash array for your high-end
+database applications and then you have
+an older traditional spinning discs and
+performance capabilities and all flash
+you might want to look at Enterprise
+Plus to be able to assign these per
+the backup server certificate in this
+if you did have an actual cert through a
+CA you can install it here notice you
+also have Linux host authentication so
+if you want to have them just
+automatically add all the discovered
+the default option or if you want to
+actually do an import manually you do
+have that ability using this option
+under email settings this is where you
+can enable email notifications using
+all the settings necessary to set this
+up notice here at the bottom you have a
+few checkboxes that are going to be
+important notify on warnings notify own
+failures you do have the ability to get
+notified on successes and then finally
+suppress notifications until the last
+retry so this is also important because
+be backed up if it were to do a retry
+and succeed on the second retry you
+would actually get a failure
+notification for that particular job
+notify you that it did in fact grab a
+important when to realize that that will
+actually suppress any notification until
+false positives SMTP settings if you
+to use SNMP traps you have the ability
+to do that here
+notifications these are some very
+important checks where we can notify you
+if certain conditions are met such as
+backup storage so your repository drops
+levels on production data stores so warn
+you if it gets below 10% and then
+actually skip processing of any VM if it
+goes below 5% on the source data store
+if it was that low and we created a
+snapshot during the backup activity or
+replication activity it could
+potentially fill up the data store
+suspending everything so you definitely
+make sure that you leave those
+checkpoints in place so that you get
+notified if any of those potentially
+critical issues were to happen also
+under support expiration you can enable
+notifications about support contract
+expiration
+periodically we can phone home and check
+hypervisor updates now for the
+hypervisor updates this is going to
+refer to Microsoft hyper-v in this case
+looking for any VMware ESXi updates and
+then finally under the history tab this
+is where you can tweak what type of
+history session and week retention that
+quick tour of the solution the one final
+thing I wanted to mention just so you
+at any one of these jobs and you click
+notification and statistic information
+window here below the only other thing
+that you do have the ability to tweak is
+if you just want to do a compact view
+where it just shows you the settings
+here at the bottom you do have the
+ability under the View tab to change
+this to compact view or totally turn off
+any statistics pane in my opinion I
+really love the full view because it
+actually breaks down VM by VM of
+you all the steps one by one so that
+it also gives you a nice bottleneck
+detector so you can actually see where
+the weak link is with your full beam
+deployment thanks so much for watching
+the video hopefully this has given you a
+quick tour around the console itself
+what is located where how to navigate to
+want to be sure that you set upon
+implementation for additional product
+videos make sure to check out Viacom
+got quite a few more how-to tutorials
+and instructional videos enjoy the rest
+of your day and thanks again for
+watching

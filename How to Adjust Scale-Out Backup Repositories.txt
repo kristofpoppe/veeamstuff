@@ -1,0 +1,182 @@
+a scale-up backup repository is an
+abstraction layer in between the backup
+job and your repositories to create a
+layer in between in case you have a
+dynamic environment where you have to
+make changes to your repositories you
+may not have to make changes to the
+backup job now this is only an option in
+enterprise and enterprise plus some of
+the features that we can use for jobs
+and tasks are backup jobs backup copy
+jobs and even veeam zip tasks there are
+different policies as well like data
+locality as well as performance to allow
+you to adjust how you want your data to
+Vigne scale-up back of repositories
+allow us to use multiple storage
+locations called extents and view them
+as a single repository in the Veen
+backup and replication interface this
+can greatly reduce the complexity of job
+scale-up backup repository the first
+regular backup repository as we zoom in
+including at the end the word extent
+this name extension will make this
+data now we move to the repository
+section where we can browse once we
+looking at and go through to find the
+area in which we want to store this data
+to confirm we select ok as this is a
+regular backup repository this will have
+the same load control that you would
+have for any other backup repository
+this includes limit maxim concurrent
+tasks and limit read and write data
+rates we can also find additional
+options by selecting advanced the first
+two features include a line backup file
+data blocks and if you use deduplication
+decompress backup data blocks before
+storing the one feature in this list
+that is not supported by scale-up backup
+repositories is this repository is
+backed by rotated hard drives
+permitted to be used as extends in a
+scale of backup repository the last
+feature in the list use per VM backup
+files allows us to split our backup
+files into one chain per virtual machine
+which is seen right here this works both
+at the extent level or on a scale of
+backup repository as a whole which we
+like to use we can then move on to the
+mount server settings this is where you
+can enable the v-power NFS service on
+the mount server then we go to review
+and then apply to create the storage
+location this is also referred to as the
+go and create a scale-out repository we
+do this by right-clicking on scale-out
+repository and selecting add scale-out
+repository from the menu as we zoom in
+give it its own unique name the next
+step is to decide which extends will be
+added to the performance tier this would
+typically be our on-prem storage now we
+click Add and select the extents that we
+created earlier once selected we click
+OK and now we can go down and take a
+look at the advanced settings that are
+down here in the bottom right the first
+option use per VM backup files allows
+the use of all the extents in this scale
+out repository the second option will
+allow us to force an active full backup
+of the content we are requesting if an
+the options we want we can then select
+ok and move on to the next menu the next
+section we will be configuring will be
+the placement policy the placement
+policy will define where the backup
+files will be located within the extents
+of your scale-out repository data
+locality will allow us to keep our
+chains of backup files together like
+locating the full backups in the same
+extent as the incrementals the
+performance placement policy allows us
+to split these backup files between
+different extents this will spread the
+load across your configured storage
+locations once we select performance
+in this menu we can see the two extents
+that we configured earlier when we
+select either one of the
+extense will be able to go to the Edit
+properties section to be able to make
+additional changes so if I come up here
+and I select the first extent which is
+edit and now I can do backup files or
+just incremental files in this example
+some of our extents are using our EFS
+you will need to keep all of your data
+on the same extent if you want to take
+advantage of our EFS s block clone
+capabilities this would also be the
+preferred option if you plan on using
+deduplicated storage now we go to the
+bottom and select next so we can now
+move on to the capacity to your
+configuration the first option we see is
+extend scale-up backup repository
+capacity with object storage once my
+data is in a sealed chain the backup
+files are no longer being merged because
+window we can now build some objects
+that can be sent to our object storage
+with the data from our backup files
+while also keeping a subset on Prem for
+easy restore we also have the option to
+encrypt data uploaded to object storage
+at the bottom of this menu as well for
+gonna uncheck the extend scale-up backup
+repository capacity with object storage
+for this example so simply unselecting
+it will let us move on to the apply
+option and then we can move on to the
+repository once this process completes
+we can select finish and it will show us
+the scale-out repository has been
+our new scale at repository and take a
+look at the access permissions option if
+we have Veeam agents writing data into
+this backup repository we can select
+which user or users are allowed to
+access this scale-out repository we can
+also force the use of encryption on the
+backup files being saved to this
+scale-out repository if you do choose to
+use encryption make sure you have a good
+recovery option in place like the manage
+passwords option below if we right click
+again we can see where we can set a
+location or even view properties as well
+if we select the scalar repository
+extents which you can right click and
+select proxy affinity this feature will
+link the selected repositories to the
+proxies best located for writing data
+into it we can also select maintenance
+mode or even evacuate backups when
+required
+now that the scale-up backup repository
+more features now we can use scale-out
+back up repositories with backup jobs
+on a backup job and select edit to get
+some more information once in the Edit
+from the left this will then allow us to
+go over and select backup repository and
+back at repository that we created
+called
+how to sob our note that you only see
+the scale out repository and not the
+care of this through our configuration
+of this scale out backup repository
+a few more things as we said earlier
+scale up backup repositories are
+supported with backup copy jobs there
+are types of data that cannot be stored
+in scale out repositories the first is
+metadata for our replication jobs that
+will need to be stored in a standalone
+backup repository additionally a very
+important piece of data is the
+configuration backup files if you go to
+the main menu in the upper left-hand
+corner you will see a drop-down with the
+option to select configuration backup
+they will need to be stored in a
+standalone backup repository as well
+thank you for watching this
+demonstration

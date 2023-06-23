@@ -1,0 +1,89 @@
+
+there are a lot of threats to your data
+at veeam our goal is to keep that data
+secure and be available for restore when
+you need it one of the best ways to do
+that is to follow the 32110
+rule here at veeam which includes having
+offline air gapped or otherwise
+immutable
+having native immutable backups is very
+easy to do here at veeam two particular
+capabilities can do that with no
+additional beam cost one is the hardened
+linux repository and the other is s3
+object lock immutability that comes with
+the public aws s3 storage or
+with a nber of different service
+providers or on-prem unified storage
+systems offering that as well
+and replication console here i have a
+nber of different backup jobs going to
+a target which is a repository
+two of these are of particular interest
+the first one is the hardened linux
+repository where i have some backups
+going and then the other one
+is the immutable backups to the cloud
+these are repositories that are set up
+with immutability either on-prem or in
+the cloud so we have a lot of
+flexibility there
+if i take a look at the backup
+infrastructure you can see a list of all
+of those different repositories again
+that is the target for backup jobs
+immutable backups and then the hardened
+linux repository they sit alongside all
+of the other different repositories but
+they have two special
+configuration items that make a big
+difference for the reliability of this
+public aws s3 immutable backups
+this particular repository is part of a
+scale out backup repository serving as
+the capacity tier with a couple of
+setting that these backups are marked as
+immutable
+for 30 days
+using the scale out backup repository
+with copy mode that will put the backups
+that are taken immediately into the
+scale out backup repository with that
+immutability
+the second repository i want to show is
+the hardened linux repository and
+immutable for 14 days on this particular
+type of repository it uses the xfs file
+system
+on linux with no additional beam cost to
+achieve this type of immutability on
+premises with basically no barrier of
+entry
+you can also use this in conjunction
+with the scale out backup repository as
+well
+so a nber of different ways you can do
+immutability in addition to some of the
+other capabilities we have such as tape
+removable drives and more and what
+really matters is having some form of
+the 32110
+rule implemented in your organization
+that specifies to have three different
+copies of data on two different media
+one of those is off-site
+and then additionally one of those
+copies be either offline air-gapped or
+immutable and then have complete
+zero errors with sure backup recovery
+verification
+now there are a nber of different ways
+you can do that here with veeam and it
+hardware or technology yet it can
+be recoverable against nearly any
+failure scenario all of this is really
+good stuff and if you like what you see
+i encourage you to go over to veeam.com
+and download a trial today
+

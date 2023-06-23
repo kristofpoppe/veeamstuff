@@ -1,0 +1,260 @@
+
+going to walk you through the
+installation of veeam backup and
+replication and share some tips on
+getting the install right
+through a couple of components and just
+focusing on here so when i look at a
+veeam deployment i have a nber of
+different components of course i have
+the 
+you know source infrastructure here so
+hypervisors agents that sort of stuff
+i have my veeam proxies which in a
+virtual environment are responsible for
+consing the data from the source
+and i have my veeam repositories which
+is where my backup archives are going to
+be stored so those could be standalone
+repositories it could be a scale out
+backup repository with offload to public
+cloud
+is really the brains of the veeam backup
+and replication deployment which is the
+veeam backup and replication server
+what this installation looks like and
+some things to look out for
+going to download veeam backup and
+replication i already have a license key
+here but of course you can download
+and get a trial key or even just run
+community edition from this single
+download
+iso and i can kick off the installation
+process so a few things to note here
+ of course the big install button is
+second but you can also use this as a
+launch pad to get to their product
+docentation to get to further training
+videos
+and then install the standalone
+all-in-one install so
+veeam backup and replication itself is
+the
+coordinator component inside
+a veeam
+component deployment
+ and a couple of other functions
+the install veeam backup enterprise
+manager
+is our web-based management tool for the
+veeam backup and replication
+infrastructure it serves a couple of
+functions typically in a veeam
+deployment first of all it provides
+federation if you have multiple veeam
+backup and replication servers
+it also provides a searchable index if
+workload backups so 
+in addition to things like role-based
+access control and some self-service
+capabilities those kind of things but
+video
+the veeam backup and replication console
+itself is where you install the console
+standalone so you have a veeam backup
+and replication server deployed
+console somewhere else maybe in your
+desktop
+to be able to access the console and do
+configuration
+we also have the ability to deploy the
+enterprise application plugins so these
+are plugins for
+applications like oracle rman or sap
+hana so that we can use those mechanisms
+to back up to veeam
+repositories
+but for the purposes of this video we
+are going to run through the
+installation of veeam backup and
+replication so the first thing we get is
+the end user license agreement of course
+please read this carefully
+you and click next
+provide the license file for veeam
+backup and replication so you know find
+from veeam or
+you can go ahead and just install in
+license file
+the all-in-one install here we get the
+veeam backup and replication server
+itself we get the veeam backup catalog
+which is the component that
+actually consolidates the
+index files that we get through file
+system indexing and then can share them
+with the veeam enterprise manager to do
+files you know searches for particular
+files or metadata about those files as
+part of the recovery process
+and the veeam backup and replication
+console so this is the
+the windows based console that we can
+use to configure veeam
+one other thing to note in this dialog
+is just the installation directory now
+files here but one thing you want to be
+aware of is well first of all of course
+itself but also where the log files for
+the application are going to be stored
+so veeam
+happening inside the application of
+course you can use that for
+troubleshooting or auditing or a variety
+of functions
+the log files can get quite big so
+the system requirements to make sure
+files but they also benefit from being
+on faster storage
+so
+to just you know my c drive see program
+files here
+but after the fact i might go and change
+the location of the log files so do
+check the product docentation for how
+to do that and consider where you want
+your vm log files to be based
+generally especially in larger
+deployments we want those log files to
+be on a separate desk and often that
+separate this would we would expect to
+be fast so you know like ssd or
+something like that so just be mindful
+of that
+next we are going to provide the service
+account context for the veeam backup and
+replication service
+selected at local system but just kind
+of a general point on vman and accounts
+veeam does not need to be deployed
+inside an active directory domain i mean
+it can be
+but it does not require to be actually
+none of the veeam components need to be
+domain joined
+as a general recommendation we actually
+recommend that the veeam components are
+deployed away from your production
+active directory domain maybe in
+standalone workgroup or maybe in a
+management domain that is specifically
+configured for management functions
+inside your organization
+the veeam backup and replication
+database so this will be a microsoft sql
+server instance
+it could be deployed locally on the
+veeam backup and replication server it
+could be on a remote sql database it
+could be deployed into a sql always on
+availability group or other cluster
+technology do check the product
+docentation for those configurations
+by default
+will actually download install deploy
+microsoft sql express
+for smaller deployment sql express may
+limitations you need to be aware of
+though  the first one is the size of
+the database can only be up to 10 gig
+which honestly for the veeam backup and
+replication database is fine for the
+vast majority of deployments the vbr
+database never gets that big but the
+other limitations might lean you more
+towards using sql standards so
+those limitations with sql express are
+that sql express can only use the first
+four processing cores on the first cpu
+so that could be a limiting  compute
+factor and also sql express will only
+use the first gigabyte of ram configured
+processing cores
+so generally working with customers we
+find that the 10 gig database limit
+factor in larger deployments it tends to
+be the compute restrictions that
+microsoft place on sql express so
+take those you know take those things
+under consideration
+make the decision about which sql
+instance is going to work best for you
+context for connecting to sql so that
+could be
+windows authentication credentials
+it could be
+you know built-in sql server
+authentication credentials
+so provide that
+and move on to the next step
+configuration so beam backup and
+replication configures a nber of
+default ports if i want to change these
+i can if i have a policy around which
+ports are allowed and disallowed that
+kind of stuff i can configure the
+the ports here
+okay next up a couple of data locations
+that we want to configure that you may
+want to be aware of
+so
+the first is the instant recovery rate
+cache so when
+veeam does an instant vm recovery so
+starting a virtual machine directly from
+the backup archive so without having to
+restore all the blocks and all that
+stuff we can just power the vm on
+directly from the backup archive now we
+keep that backup archive read-only
+so that means that the changes that get
+made whilst the instant vm is running
+have to be stored somewhere
+this is that somewhere we specify the
+location for the instant recovery cache
+ and then what will happen is that if
+the instant recovery session i then want
+to migrate it back into production
+ veeam is smart enough to take the
+read-only version of the the vm running
+from the backup archive and the changes
+in the instant recovery right cache and
+merge those together as part of the
+you know as part of the restore back to
+production process
+the other location i might want to
+configure here is the guest file system
+catalog so this is part of the file
+system indexing function that veeam
+provides
+so i want to provide a location for that
+for the workloads managed by this vbr
+instance okay so last step really i just
+check all the variables that are
+provided make sure that everything looks
+good
+i can also check for updates immediately
+upon the product installation so those
+will be downloaded and installed
+and then i click install
+okay and now our installation has
+succeeded
+so
+what we
+end up with is the veeam backup and
+replication console on the desktop here
+so i can simply open that up connect in
+protecting my data
+thanks for watching this video please
+join us in the next one

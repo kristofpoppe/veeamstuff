@@ -1,0 +1,494 @@
+when you think about the term business
+continuity one of the things that comes
+to mind first is how to successfully get
+your data off-site to a remote location
+to protect against a large-scale outage
+such as a natural disaster or a data
+center failure one of the things that
+veeam has built in with our product is
+backup and replication replication does
+much more than simply replicating backup
+data to another storage target our
+replication functionality will actually
+take a source work load and generate a
+fully hydrated fully functioning copy at
+a remote location standing by ready to
+yourself in one of these large-scale
+a look on the light board at exactly how
+exactly how veem does replication and
+how it differs from a typical backup
+production site with a basic VMware
+environment on this side we also have a
+disaster recovery site with a similar
+basic diagram drawn out in the middle we
+also have some sort of connection
+MPLS network or VPN tunnel now the first
+thing to make sure we draw the
+difference between is using a backup
+going to transfer it from site a to site
+B but it will remain d duped and
+compressed in the form of a veem backup
+file type not a VMDK not of VHDX not
+anything that a native hypervisor would
+live on repository storage now in
+contrast when you go into the software
+entirely different in this case what
+source virtual machine and creating a
+fully hydrated fully functioning copy at
+not in use so the idea behind
+replication is to enable a failover and
+a fail back scenario so if you have a
+large site wide issue
+as a datacenter failure an isp outage or
+you actually have the ability to
+failover proactively to avoid any such
+catastrophes now the way the process
+works is actually quite similar to the
+backup process when you first kick off a
+to send a VSS command to the actual
+application aware image processing now
+take a snapshot of the virtual machine
+just like we would do with a backup so
+once the snap has been completed then we
+thing the backup job and the replication
+job process is the same way it actually
+will compress and D duplicate and the
+reason it does this is because of this
+connection so think about if we were to
+just process the data but not compress
+over that bulk data size over this
+connection to the D our site instead the
+initial process is exactly the same we
+do the snapshot after VSS quiescing is
+done we compress and D dupe the source
+data we send it over the wire in that
+compressed D dupe state however once you
+get over to this side we decompress it
+and we rehydrate it and we write it as a
+native fully hydrated virtual machine
+of the key differentiators because you
+arrays drawn here at the very bottom as
+part of a sand network so storage level
+replication does have some benefits over
+host level replication which is what
+with the hosts doing snapshots of
+virtual machines when you replicate it
+the storage layer you bypass all this
+the benefit is generally speaking you
+doing storage native replication of a
+line
+from array to array some of the cons
+though is generally you have to have
+matching arrays or at least matching
+vendors before their technology will
+communicate with each other the other
+thing is with our storage technology
+alliance partners beam does actually
+have the ability to orchestrate storage
+level replication
+case in point with net APIs snapmirror
+we can actually orchestrate that from
+talking about specifically is our
+replication job now on top of this you
+do have the ability to use a win
+accelerator so if you have a limited
+have all of that to do the replication
+you can implement a way an accelerator
+ready to go if we move back over to the
+dr site one of the other nice things
+about the replication job is we do have
+not the traditional retention that
+points in time that are going to be
+incrementals
+that can be recovered from in the event
+of needing to go back and grab a
+different version of said data remember
+not storing the data in a Veen format
+native virtual machine so the only way
+that we can hold retention is with
+snapshots okay so on the target side in
+a VMware environment you can actually
+47 right at current versions as far as
+capacities go now do you need to store
+28 snapshots on VM probably not but it
+gives you a nice buffer if you want to
+create a few restore points with your
+replicas so that if something happens at
+in time and you still need to failover
+you can failover to a previous point in
+that replication chain now the other
+thing that we need to talk about is job
+schedules you have the same
+replication frequency options that you
+do backup options meaning that you can
+coordinate the job based on hourly daily
+you can do it monthly if you wanted to
+do it that far out or you can set it
+much more granular and get into the
+minutes or even leave it on a continuous
+misconception with this if you set the
+job on continuous that does not mean
+continuous data protection remember
+everything that we talked about over
+here we still have to send the VSS call
+we still have to do a snap on the VM we
+still have to process the data which
+means compressing and deduplicating we
+then have to send the data over and
+write it on the target side once all
+that is complete then we finally delete
+the snapshot and the job is over now if
+you set it on continuous all that means
+in the software is as soon as that
+process is able to conclude we simply
+start it over again so does that mean
+five minutes 20 minutes 30 minutes an
+hour it absolutely depends on
+environmental variables with regards to
+how fast that process can conclude now
+the last thing that I wanted to make
+about the maxim snapshot retention so
+for those of you who are familiar with
+all the way up to the max is we need to
+reserve a few snapshots for protective
+reasons when we actually do the failover
+and before we do the committing of the
+failover States so the way that this
+works when you get ready to do a
+failover before we turn on these VMs at
+okay and the reason why this is done is
+if anything were to go wrong we can undo
+the failover bring everything back over
+here to the production side and remove
+that protective snap on the DR side that
+way all the data is discarded if it
+something went wrong during the failover
+we have the ability to issue that undo
+look at a little bit deeper in the
+console is replication and failover is
+an intermediate step
+much like our instant vm recovery
+need to finalize it you need to decide
+as a business what do you do now so once
+you have failed over you have the
+ability to do a permanent failover now
+if you do a permanent failover that
+asses that production is gone
+generally speaking the permanent
+failover is reserved for when the data
+going to need to run at the DR site for
+an extended period of time
+production data center was flooded you
+run production at the DR site for a
+while as well as continue backing up
+failover and everything runs at the
+disaster recovery site now fast forward
+need to do a reverse replication so now
+take these production machines that are
+technically running at the DR site
+replicate back to the real production
+running back at the location that you
+intended for okay now the other option
+already talked about undo you failover
+you can undo and go back to production
+you can failover
+issue a permanent failover those are one
+you know one click and done permanent
+undo failover you go back here
+need to plan for is the fail back right
+hours and now production is ready to
+take that data so all the changes that
+have been tracked over here we now need
+to resync to the production side now if
+the original V
+because all the changes are tracked over
+here
+the failback will sync those changes
+virtual machine with only the Delta
+changes now what happens if the VMS are
+gone but the production side is still
+there will fail back the entire VM as it
+exists at the dr site rebuild it at the
+production location right worst-case
+rebuilt but now you need to fail back
+this might have been a day or two so
+rather than do the permanent failover
+you can stay in the failover state get
+everything running back over here and
+then fail back to a new location so in
+that design veeam will actually rebuild
+all the VMS over at this site another
+option you may have is actually do a
+seed where if that scenario happened you
+can take backups of the VMS over here
+physically transport them to this site
+so you circvent having to resync all
+that data over the connection once those
+physical backups are here you can use
+those as a seed to rebuild the replicas
+VMs then we do just a delta sync failing
+the thing once you issue the fill back
+and you get back to this location you
+can still undo the fail back so if
+anything happened while you were syncing
+the change data back and you found
+yourself needing to go back to the dr
+site to either try again or make some
+modifications over here you can undo the
+critical to understand though is when we
+already made changes to these VMs that
+fill back again you can find yourself in
+data so be careful with the fail back
+all right remember once you issue the
+were rigged
+running at production everything is
+made sure services are starting and
+running properly the final step is to
+commit the fail back now this is crucial
+protective snaps over here beam still
+that once you have failed back and you
+verify it everything is running make
+sure you commit the fail back which will
+remove all the protective snapshots that
+you have on your replicas and bring you
+back to an operational state at the
+some of these settings in the software
+got available for replication as well as
+failing over and failing back ok now
+just a few areas that I want to
+highlight around the replication
+functionality the first thing is if we
+look at an existing replication job I
+want to show you a few of the things
+that we were talking about at the
+lightboard with regards to what options
+you look at the destination one of the
+repository instead we are in fact
+actually targeting another host or
+environment to build the copy of this
+virtual machine on including a
+production data store now if you look
+further down in job settings you do have
+the ability to give the replicas a
+restore points to keep that we were
+talking about on the board if you need
+to keep a little bit of extra buffer so
+that you have that ability to failover
+to a previous point in time you can
+enter this here now notice above where
+it talks about repository for replica
+metadata this is actually where it keeps
+the metadata for this particular
+repository job this repository needs to
+be at the same site as the
+scale out backup repository it has to be
+a traditional veem repository when you
+look at data transfer this goes into how
+we send data from the source location to
+the target location
+one of the things you may notice right
+you look at the backup job the backup
+job only has a single proxy selection so
+the reason we use a source and a target
+proxy is so when we process the data at
+the source side using the source proxy
+source data store actually doing
+compression and deduplication and
+sending over whatever connection you
+have to the remote site the target proxy
+is going to be responsible for receiving
+that inbound data transfer rehydrating
+the data decompressing it and actually
+writing it out to a target data store
+and registering it in inventory now if
+you are doing on-site replication which
+looking for high availability and you
+just want to replicate certain data from
+host 1 to host 2 you can actually use
+the same proxy for both the source and
+the target to cut down on network hops
+generally speaking with replication
+so you want to be sure that the source
+proxy is actually pulled from the source
+site and the target proxy is selected
+from the target site if you do leave it
+on automatic selection just one of the
+looking at job statistics now right
+below this you can see the way an
+accelerator option we talked about if
+going to go from source proxy to target
+proxy if you go through an accelerators
+wayne accelerator and a target side to
+try to further locate duplicate blocks
+of data that exists already in the cache
+of the target side wayne accelerator so
+we can locate duplicate data blocks
+packets on the source side and
+reinserted at the target side when you
+get to writing the target VM at
+the remote location now guest processing
+we briefly mentioned if you need
+you enable this in the job and this is
+definitely recommended for any highly
+transactional workload you may be trying
+to replicate and finally like I
+mentioned earlier you have all the same
+scheduling options that you would
+otherwise have for backup jobs including
+very granular choices such as in the
+hours minutes or continuous now the one
+noting here is on the very first tab
+notice you have the ability for network
+remapping so if the source location has
+a different IP scheme than the target
+the IP information when you replicate so
+that when the replicas come online will
+actually inject the new IP data into the
+registry during boot up so they will
+come on with different IP schemes now
+you also have the ability to do network
+remapping and the differences REI P is
+actually changing the IP addresses
+mask the Gateway the DNS the winds but
+when you talk about network remapping
+different from source to target where
+you probably know if you fail over and
+you try to boot up a VM at the remote
+name the NIC will not connect to any
+network so otherwise it would be
+you do have different network naming
+map the source NIC to a target network
+so that when you failover and it comes
+one of the things we did talk about is
+replica seeding so if you check this box
+notice how you get the seating option
+now if we skim through this job and get
+down to the seating options this is what
+I was referring to earlier so if you
+have to run at the DR site for quite a
+everything back to
+reduction what you can do is get a
+it on some sort of removable storage
+physically ship it or drive it to the
+production site back to the original
+veeam inventory you can actually get the
+seed from that repository and
+essentially what this will do is build
+the replica vm from that backup and then
+only going to be failing back the Delta
+changes versus the entire virtual
+machine data set size save you a ton of
+time and a ton of bandwidth going over
+that connection now the other thing
+replica mapping big difference between
+seeding and mapping seeding is building
+the VM from scratch mapping asses that
+deleted the job and you had to rebuild
+inventory this is simply reestablishing
+the link between what the source VM is
+and what the target replica VM is that
+way moving forward the job will pick up
+with Delta changes only being
+transmitted over the wire so those are
+your settings when you build the job now
+what happens when you get ready to
+failover so if we look at this one of
+not gonna demonstrate all the options
+such as failing over and undoing and
+permanent fail overs and failing back
+and committing the fail back but I did
+want to walk you through briefly how
+easy it is to failover the first thing
+you can do is a right-click and failover
+want to failover the other option if you
+notice right below if we zoom in a bit
+planned failover now this is very
+beneficial if you have the luxury to
+disaster so in that case you would just
+need to failover now but I used the
+your data centers on the East Coast you
+know a hurricane is inbound but you have
+a dr site on the west coast this is a
+get
+few days heads up so that you can plan
+accordingly do a failover now if you do
+that planned failover what veem will
+actually do is will initiate that
+replication job so that we run a typical
+replication update all the Delta changes
+that have occurred since the last job
+run then we will shut down the source
+job a second time and that will capture
+much smaller amount of change but there
+were still changes happening while that
+first run was concluding so this way you
+the Delta changes and then we will fail
+over to the target side so this way you
+the Colo and rese operations as normal
+now the one other construct to talk
+about is the failover plan the failover
+plan allows you to set a priority at
+which you want virtual machines to come
+online so if you had something like
+domain services DNS DHCP and all that
+needed to be powered up first before
+anything else would work right then you
+would want to set that as a top priority
+moving down then you can set the order
+at which the VMS will come online even
+the ability to set boot delays in
+between if you know for an example one
+of these virtual machines just takes a
+little bit longer to initialize fully
+you may have to increase the boot delay
+ability to do is run pre and post
+failover scripts now this can be very
+very beneficial if you need to run
+something that a script can handle
+before you even start to failover and
+lastly if you want to run a script after
+the failover is completed such as a DNS
+update or something to this extent you
+can actually create a script to do that
+for you now if we do a basic failover we
+right-click and do failover now the
+grab the latest possible point that you
+have but just like with backups you can
+choose any of those other restore points
+if and
+Cerie and when you hit next the last
+thing is to give it a reason and then
+gotten the vSphere client here on the
+left is I want you to watch what happens
+as the log window starts progressing and
+highlighted so you can see some tasks
+happening in the Event Viewer here below
+VM the failover completed successfully
+coming online now once the VM is running
+notice over in the vein console if we
+replica in that intermediate step that
+we talked about on the light board so
+to finalize the failover generally
+speaking if you look in veem anywhere
+something bold with a nber beside it
+in parentheses that means whatever that
+so you need to finalize it now just like
+all these options and what you can see
+is we could do a permanent failover
+which is like what we talked about
+business operations will carry on you
+can also undo the failover or fail back
+fail back since this was a basic demo
+failover now notice the tooltip that
+changes that have occurred at the D our
+site will be lost because remember the
+protective snapshots we talked about all
+will be deleted and the replicas will
+get reverted to the state that it was in
+before we issued this failover command
+options operate is
+what you can do intermediate phases
+remember you need to finalize the
+failover when you initiate it thanks so
+much for watching this video and enjoy
+the rest of your day
