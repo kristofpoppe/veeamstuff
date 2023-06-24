@@ -60,7 +60,7 @@ for video_id in video_ids:
         
     pattern = r"'text': '(.*?)', 'start'"
 
-    with open(title+".txt", "w") as f:   
+    with open(title+".txt", "w",encoding='utf8') as f:   
    
         # iterating through each element of list srt
         for i in srt:
